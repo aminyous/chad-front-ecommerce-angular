@@ -17,7 +17,7 @@ export class ProductListComponent implements OnInit {
     private productService: ProductService, 
     private route: ActivatedRoute) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
       this.listProducts();
     })
@@ -40,6 +40,8 @@ export class ProductListComponent implements OnInit {
     const theKeyword: string = this.route.snapshot.paramMap.get('keyword')!;
     this.productService.searchProducts(theKeyword).subscribe((data) => {
       this.products = data;
+      
+      
     });
   }
 
@@ -53,7 +55,7 @@ export class ProductListComponent implements OnInit {
     }
     this.productService.getProductList(this.currentCategoryId).subscribe((data) => {
       this.products = data;
-      //console.log(data);
+      console.log(data);
     });
   }
 }

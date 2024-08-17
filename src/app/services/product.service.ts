@@ -31,14 +31,15 @@ export class ProductService {
       .pipe(map((response) => response._embedded.products));
   }
 
-  
   getProductCategoriesList(): Observable<ProductCategory[]> {
     return this.httpClient
       .get<GetResponseProductCategory>(`${this.categoryURL}`)
       .pipe(map((response) => response._embedded.productCategory));
   }
 
-  
+  getProduct(theProductId: number): Observable<Product> {
+    return this.httpClient.get<Product>(`${this.baseURL}/${theProductId}`);
+  }
 }
 
 interface GetResponseProduct {
