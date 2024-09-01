@@ -46,13 +46,14 @@
                   </div>
                   <div class="col-8"></div>
                 </div>
+                <button
+                  (click)="remove(tempCartItem)"
+                  class="btn btn-primary btn-sm mt-2"
+                >
+                  Remove
+                </button>
               </div>
-              <button
-                (click)="remove(tempCartItem)"
-                class="btn btn-primary btn-sm mt-2"
-              >
-                Remove
-              </button>
+
               <p class="mt-2">
                 Subtotal :
                 {{
@@ -70,6 +71,8 @@
               <p>
                 Total Price : {{ totalPrice.toFixed(2) | currency : "EUR" }}
               </p>
+              <a routerLink="/checkout" class="btn btn-primary">Checkout</a>
+            
             </td>
           </tr>
         </table>
